@@ -52,6 +52,7 @@
             color: #fff;
             transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
         }
+        /* Container for links */
         .container {
             max-width: 400px;
             width: 100%;
@@ -88,6 +89,15 @@
         }
         .link:hover {
             background-color: #333;
+        }
+
+        /* GIF Styling - Increase size */
+        .preview-gif {
+            width: 100%; /* Make GIF larger */
+            max-width: 800px; /* Limit the max size to keep it responsive */
+            height: auto;
+            margin: 0 auto;
+            display: block;
         }
     </style>
     <script>
@@ -136,6 +146,9 @@
     <!-- Emoji (centered) -->
     <div class="emoji">♱</div>
     
+    <!-- Preview Image (GIF from Pinterest) -->
+    <img src="https://i.pinimg.com/originals/b2/d8/c3/b2d8c34901ef1d810e9e4b30b34e4df5.gif" alt="Preview GIF" class="preview-gif">
+
     <!-- Links Container (hidden initially) -->
     <div class="container">
         <h1>S4ntinal</h1> <!-- Changed website name here -->
