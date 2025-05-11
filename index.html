@@ -85,12 +85,14 @@
             const bgVideo = document.querySelector(".bg-video");
             const audio = document.getElementById("audio");
             const headerContainer = document.querySelector(".header-container");
+            const emoji = document.querySelector(".emoji");
             document.body.addEventListener("click", function() {
                 bgVideo.style.visibility = "visible";
                 bgVideo.style.opacity = "1";
                 audio.volume = 0.5;
                 audio.play();
                 headerContainer.style.visibility = "visible";
+                emoji.style.display = "none";
             });
         });
     </script>
