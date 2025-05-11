@@ -120,29 +120,30 @@
             const bgVideo = document.querySelector(".bg-video");
             const logo = document.querySelector(".loading-logo");
             const audio = document.getElementById("audio");
-            
+
             // Initially, set the audio to pause
             audio.pause();
 
-            // Click anywhere on the body to reveal the bio links and start video playback
-            document.body.addEventListener("click", function() {
-                if (logo.style.display !== "none") {
-                    // Show the background video and remove blur
-                    bgVideo.style.visibility = "visible"; // Make video visible
-                    bgVideo.style.opacity = "1"; // Fade in the video
-                    bgVideo.style.filter = "blur(0)";  // Remove the blur from the background
-                    bgVideo.style.transform = "scale(1.1)";  // Add motion blur effect on video
-                    
-                    // Show the bio links and animate the logo upwards
-                    container.classList.add("show");
-                    logo.style.transform = "translate(-50%, -100%)";
-                    logo.style.filter = "grayscale(0%)";  // Transition to full color
-                    logo.style.display = "none";  // Hide the logo after the first click
-                    logo.style.opacity = "0";  // Hide it during transition
-                    logo.style.transition = "filter 2s ease"; // Smooth transition to color
-                    audio.play();  // Start playing the audio
-                }
-            });
+            // Simulate loading for 3 seconds
+            setTimeout(function() {
+                // Show the background video and remove blur
+                bgVideo.style.visibility = "visible"; // Make video visible
+                bgVideo.style.opacity = "1"; // Fade in the video
+                bgVideo.style.filter = "blur(0)";  // Remove the blur from the background
+                bgVideo.style.transform = "scale(1.1)";  // Add motion blur effect on video
+
+                // Transition logo from grayscale to color
+                logo.style.filter = "grayscale(0%)";  // Transition to full color
+                logo.style.transition = "filter 2s ease"; // Smooth transition to color
+
+                // Show the bio links after logo transition
+                container.classList.add("show");
+            }, 3000); // Wait for 3 seconds before transitioning
+
+            // Automatically play the audio after the transition
+            setTimeout(function() {
+                audio.play();  // Start playing the audio
+            }, 3000); // Play the audio after the loading screen is finished
         });
     </script>
 </head>
