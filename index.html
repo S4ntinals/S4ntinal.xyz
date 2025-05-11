@@ -43,7 +43,6 @@
             height: auto;
             object-fit: cover;
             border-radius: 20px;
-            /* Removed the blur effect */
             visibility: hidden;
             opacity: 0;
             z-index: -1;
@@ -61,6 +60,7 @@
             transform: translateX(-50%);
             z-index: 2;
             visibility: hidden;
+            animation: dropDown 1s ease-out, motionBlur 1s ease-out;
         }
 
         .header-text {
@@ -69,6 +69,37 @@
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
             margin: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes dropDown {
+            0% {
+                transform: translate(-50%, -50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes motionBlur {
+            0% {
+                filter: blur(5px);
+            }
+            100% {
+                filter: blur(0px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         .emoji {
