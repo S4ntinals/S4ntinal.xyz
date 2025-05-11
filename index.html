@@ -34,6 +34,7 @@
             position: relative;
             cursor: pointer;
         }
+        
         /* Initially hidden background video */
         .bg-video {
             position: absolute;
@@ -49,6 +50,7 @@
             pointer-events: none; /* Disable interaction with the video */
             transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
         }
+
         /* Centering Emoji */
         .emoji {
             font-size: 6rem; /* Increased size */
@@ -60,6 +62,8 @@
             color: #fff;
             transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
         }
+
+        /* Links Container - Flexbox to center content */
         .container {
             max-width: 400px;
             width: 100%;
@@ -74,16 +78,23 @@
             z-index: 2;
             text-align: center;
             pointer-events: none;
+            display: flex;
+            flex-direction: column; /* Stack the links vertically */
+            justify-content: center; /* Center the content vertically */
+            align-items: center; /* Center the content horizontally */
         }
+
         .container.show {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto; /* Enable interaction with links */
         }
+
         h1 {
             margin-bottom: 20px;
             color: #fff;
         }
+
         .link {
             display: block;
             margin: 10px 0;
@@ -93,7 +104,10 @@
             text-decoration: none;
             border-radius: 8px;
             transition: background-color 0.3s ease;
+            width: 100%; /* Ensure the links take the full width of the container */
+            max-width: 300px; /* Optional: limit the maximum width of the links */
         }
+
         .link:hover {
             background-color: #333;
         }
