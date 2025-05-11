@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S4ntinal</title>
     
+    <!-- Favicon hosted online -->
+    <link rel="icon" type="image/gif" href="https://i.pinimg.com/originals/79/05/f2/7905f2a27011e62247c1f4ebd2004e03.gif">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="S4ntinal">
     <meta property="og:description" content="S4ntinal Website is my own bio link i made it
@@ -31,12 +34,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #000; /* Black background */
+            background-color: #000;
             position: relative;
             cursor: pointer;
         }
         
-        /* Initially hidden background video */
         .bg-video {
             position: absolute;
             top: 0;
@@ -44,30 +46,28 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: blur(20px) grayscale(0.5) contrast(1.2); /* Slight blur and contrast for the "old TV" look */
-            visibility: hidden; /* Hide the video initially */
+            filter: blur(20px) grayscale(0.5) contrast(1.2);
+            visibility: hidden;
             opacity: 0;
             z-index: -1;
-            pointer-events: none; /* Disable interaction with the video */
-            transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
+            pointer-events: none;
+            transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
         }
 
-        /* Static Noise Overlay for old TV effect */
         .static-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/noise-1.png'); /* Noise pattern overlay */
+            background: url('https://www.transparenttextures.com/patterns/noise-1.png');
             pointer-events: none;
-            opacity: 0.1; /* Slight opacity for subtle effect */
+            opacity: 0.1;
             z-index: 1;
         }
 
-        /* Centering Emoji */
         .emoji {
-            font-size: 6rem; /* Increased size */
+            font-size: 6rem;
             z-index: 1;
             position: absolute;
             top: 50%;
@@ -77,13 +77,12 @@
             transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
         }
 
-        /* Text Above */
         .header-text {
             position: absolute;
-            top: 5%; /* Increased value to move it higher */
+            top: 5%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1.2rem; /* Reduced font size */
+            font-size: 1.2rem;
             font-weight: bold;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -95,48 +94,30 @@
             const bgVideo = document.querySelector(".bg-video");
             const emoji = document.querySelector(".emoji");
             const audio = document.getElementById("audio");
-            
-            // Initially, set the audio to pause
             audio.pause();
-
-            // Click anywhere on the body to reveal the bio links and start video playback
             document.body.addEventListener("click", function() {
                 if (emoji.style.display !== "none") {
-                    // Show the background video and remove blur
-                    bgVideo.style.visibility = "visible"; // Make video visible
-                    bgVideo.style.opacity = "1"; // Fade in the video
-                    bgVideo.style.filter = "blur(0) grayscale(0.2) contrast(1.2)";  // Remove the blur and lighten the image
-                    
-                    // Hide the emoji after the first click
+                    bgVideo.style.visibility = "visible";
+                    bgVideo.style.opacity = "1";
+                    bgVideo.style.filter = "blur(0) grayscale(0.2) contrast(1.2)";
                     emoji.style.transform = "translate(-50%, -100%)";
                     emoji.style.filter = "blur(5px)";
-                    emoji.style.display = "none";  // Hide the emoji after the first click
-                    audio.play();  // Start playing the audio
+                    emoji.style.display = "none";
+                    audio.play();
                 }
             });
         });
     </script>
 </head>
 <body>
-    <!-- Static Overlay for Noise -->
     <div class="static-overlay"></div>
-
-    <!-- Background Video (MP4) -->
     <video class="bg-video" autoplay muted loop>
-        <source src="https://www.dropbox.com/scl/fi/orv7rz0ik5kms6xf6inel/ssstik.io_1_michs_9_1746466808576.mp4?rlkey=pqmmwzdzdt4bh4t51zuzld3ba&st=bk586w28&raw=1" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="https://www.dropbox.com/scl/fi/orv7rz0ik5kms6xf6inel/ssstik.io_1_michs_9_1746466808576.mp4?raw=1" type="video/mp4">
     </video>
-    
-    <!-- MP3 Song (Autoplay, Loop) -->
     <audio id="audio">
-        <source src="https://www.dropbox.com/scl/fi/zmyxlz6htys46v2px4g7x/ssstik.io_1_michs_9_1746466808576.mp3?rlkey=hjjd4h0e3mtn9145hao9t6r07&st=svmknuhm&raw=1">
-        Your browser does not support the audio element.
+        <source src="https://www.dropbox.com/scl/fi/zmyxlz6htys46v2px4g7x/ssstik.io_1_michs_9_1746466808576.mp3?raw=1">
     </audio>
-    
-    <!-- Text Above -->
     <div class="header-text">ꜱ4ɴᴛɪɴᴀʟ</div>
-    
-    <!-- Emoji (centered) -->
     <div class="emoji">♱</div>
 </body>
 </html>
