@@ -39,13 +39,11 @@
         }
 
         .bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            width: 50%;
+            height: auto;
             object-fit: cover;
-            filter: blur(20px) grayscale(0.5) contrast(1.2);
+            border-radius: 20px;
+            filter: blur(10px) grayscale(0.5) contrast(1.2);
             visibility: hidden;
             opacity: 0;
             z-index: -1;
@@ -77,14 +75,21 @@
         }
 
         .header-text {
-            position: absolute;
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 1.2rem;
             font-weight: bold;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin: 10px;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 2;
         }
     </style>
@@ -109,13 +114,17 @@
 </head>
 <body>
     <div class="static-overlay"></div>
+    <div class="header-container">
+        <div class="header-text">ꜱ4ɴᴛɪɴᴀʟ</div>
+        <div class="header-text">Welcome to my website</div>
+        <div class="header-text">Click anywhere to start</div>
+    </div>
     <video class="bg-video" autoplay muted loop playsinline>
-        <source src="https://www.dropbox.com/scl/fi/orv7rz0ik5kms6xf6inel/ssstik.io_1_michs_9_1746466808576.mp4?rlkey=pqmmwzdzdt4bh4t51zuzld3ba&st=0veby7y0&raw=1" type="video/mp4">
+        <source src="https://www.dropbox.com/scl/fi/orv7rz0ik5kms6xf6inel/ssstik.io_1_michs_9_1746466808576.mp4?raw=1" type="video/mp4">
     </video>
     <audio id="audio" autoplay loop>
-        <source src="https://www.dropbox.com/scl/fi/zmyxlz6htys46v2px4g7x/ssstik.io_1_michs_9_1746466808576.mp3?rlkey=hjjd4h0e3mtn9145hao9t6r07&st=kwfusaym&raw=1">
+        <source src="https://www.dropbox.com/scl/fi/zmyxlz6htys46v2px4g7x/ssstik.io_1_michs_9_1746466808576.mp3?raw=1">
     </audio>
-    <div class="header-text">ꜱ4ɴᴛɪɴᴀʟ</div>
     <div class="emoji">♱</div>
 </body>
 </html>
