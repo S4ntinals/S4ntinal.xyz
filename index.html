@@ -43,12 +43,12 @@
             height: auto;
             object-fit: cover;
             border-radius: 20px;
-            filter: blur(10px) grayscale(0.5) contrast(1.2);
+            /* Removed the blur effect */
             visibility: hidden;
             opacity: 0;
             z-index: -1;
             pointer-events: none;
-            transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
         }
 
         .header-container {
