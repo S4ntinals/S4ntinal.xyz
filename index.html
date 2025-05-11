@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S4ntinal</title>
-
+    
     <!-- Open Graph Meta Tags for Social Media Previews -->
     <meta property="og:image" content="https://i.pinimg.com/originals/29/57/d9/2957d99bf220c6a37bac7702959736cc.gif">
     <meta property="og:title" content="S4ntinal">
@@ -26,8 +26,33 @@
             position: relative;
             cursor: pointer;
         }
-        
-        /* Layout adjustments for container */
+        /* Initially hidden background video */
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(20px); /* Increased blur */
+            visibility: hidden; /* Hide the video initially */
+            opacity: 0;
+            z-index: -1;
+            pointer-events: none; /* Disable interaction with the video */
+            transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
+        }
+        /* Centering Emoji */
+        .emoji {
+            font-size: 6rem; /* Increased size */
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
+        }
+        /* Container for links */
         .container {
             max-width: 400px;
             width: 100%;
@@ -42,22 +67,16 @@
             z-index: 2;
             text-align: center;
             pointer-events: none;
-            display: flex;
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center the content horizontally */
         }
-
         .container.show {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto; /* Enable interaction with links */
         }
-
         h1 {
             margin-bottom: 20px;
             color: #fff;
         }
-
         .link {
             display: block;
             margin: 10px 0;
@@ -68,29 +87,23 @@
             border-radius: 8px;
             transition: background-color 0.3s ease;
         }
-
         .link:hover {
             background-color: #333;
         }
 
-        /* Style for the GIF */
-        .gif-container {
-            width: 100%;
-            margin-top: 20px;
-            display: flex;
-            justify-content: center; /* Center the gif horizontally */
+        /* GIF Styling - Increase size */
+        .preview-gif {
+            width: 100%; /* Make GIF larger */
+            max-width: 800px; /* Limit the max size to keep it responsive */
+            height: auto;
+            margin: 0 auto;
+            display: block;
         }
-
-        .gif-container img {
-            max-width: 100%; /* Make the gif responsive */
-            height: auto; /* Ensure the gif maintains its aspect ratio */
-            width: 500px; /* Set a max width if necessary */
-        }
-
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.querySelector(".container");
+            const bgVideo = document.querySelector(".bg-video");
             const emoji = document.querySelector(".emoji");
             const audio = document.getElementById("audio");
             
@@ -100,6 +113,12 @@
             // Click anywhere on the body to reveal the bio links and start video playback
             document.body.addEventListener("click", function() {
                 if (emoji.style.display !== "none") {
+                    // Show the background video and remove blur
+                    bgVideo.style.visibility = "visible"; // Make video visible
+                    bgVideo.style.opacity = "1"; // Fade in the video
+                    bgVideo.style.filter = "blur(0)";  // Remove the blur from the background
+                    bgVideo.style.transform = "scale(1.1)";  // Add motion blur effect on video
+                    
                     // Show the bio links and animate the emoji upwards
                     container.classList.add("show");
                     emoji.style.transform = "translate(-50%, -100%)";
@@ -112,6 +131,12 @@
     </script>
 </head>
 <body>
+    <!-- Background Video (MP4) -->
+    <video class="bg-video" autoplay muted loop>
+        <source src="https://www.dropbox.com/scl/fi/z35r6qheb2evoo3qyn09w/0505.mp4?rlkey=c2f61qodmfpr2lz2gdaxdi6ln&st=n6ptb9xx&raw=1" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
     <!-- MP3 Song (Autoplay, Loop) -->
     <audio id="audio">
         <source src="https://www.dropbox.com/scl/fi/mvlrsgx3xdc7g7fzyld2s/Ken-Carson-Ghoul-Slowed.mp3?rlkey=a33tptowsddmtlwlp14d5shwd&st=teek4pd0&raw=1">
@@ -121,17 +146,15 @@
     <!-- Emoji (centered) -->
     <div class="emoji">♱</div>
     
+    <!-- Preview Image (GIF from Pinterest) -->
+    <img src="https://i.pinimg.com/originals/b2/d8/c3/b2d8c34901ef1d810e9e4b30b34e4df5.gif" alt="Preview GIF" class="preview-gif">
+
     <!-- Links Container (hidden initially) -->
     <div class="container">
         <h1>S4ntinal</h1> <!-- Changed website name here -->
         <a href="https://www.roblox.com/users/38887921/profile" class="link" target="_blank">Roblox Alt</a>
         <a href="https://www.roblox.com/users/4443569630/profile" class="link" target="_blank">Roblox Alt2</a>
         <a href="https://open.spotify.com/user/31dpcv4clmwxmjbqdnnttbreeyqy?si=e26d2f1531504e9e" class="link" target="_blank">Spotify</a>
-
-        <!-- GIF below the text -->
-        <div class="gif-container">
-            <img src="https://i.pinimg.com/originals/29/57/d9/2957d99bf220c6a37bac7702959736cc.gif" alt="S4ntinal GIF">
-        </div>
     </div>
 </body>
 </html>
