@@ -62,59 +62,9 @@
             color: #fff;
             transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
         }
-
-        /* Links Container - Flexbox to center content */
-        .container {
-            max-width: 400px;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            opacity: 0;
-            transform: translateY(-20px);
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            pointer-events: none;
-            display: flex;
-            flex-direction: column; /* Stack the links vertically */
-            justify-content: center; /* Center the content vertically */
-            align-items: center; /* Center the content horizontally */
-        }
-
-        .container.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto; /* Enable interaction with links */
-        }
-
-        h1 {
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .link {
-            display: block;
-            margin: 10px 0;
-            padding: 12px;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-            width: 100%; /* Ensure the links take the full width of the container */
-            max-width: 300px; /* Optional: limit the maximum width of the links */
-        }
-
-        .link:hover {
-            background-color: #333;
-        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const container = document.querySelector(".container");
             const bgVideo = document.querySelector(".bg-video");
             const emoji = document.querySelector(".emoji");
             const audio = document.getElementById("audio");
@@ -131,8 +81,7 @@
                     bgVideo.style.filter = "blur(0)";  // Remove the blur from the background
                     bgVideo.style.transform = "scale(1.1)";  // Add motion blur effect on video
                     
-                    // Show the bio links and animate the emoji upwards
-                    container.classList.add("show");
+                    // Hide the emoji after the first click
                     emoji.style.transform = "translate(-50%, -100%)";
                     emoji.style.filter = "blur(5px)";
                     emoji.style.display = "none";  // Hide the emoji after the first click
@@ -157,13 +106,5 @@
     
     <!-- Emoji (centered) -->
     <div class="emoji">♱</div>
-    
-    <!-- Links Container (hidden initially) -->
-    <div class="container">
-        <h1>S4ntinal</h1> <!-- Changed website name here -->
-        <a href="https://www.roblox.com/users/38887921/profile" class="link" target="_blank">Roblox Alt</a>
-        <a href="https://www.roblox.com/users/4443569630/profile" class="link" target="_blank">Roblox Alt2</a>
-        <a href="https://open.spotify.com/user/31dpcv4clmwxmjbqdnnttbreeyqy?si=e26d2f1531504e9e" class="link" target="_blank">Spotify</a>
-    </div>
 </body>
 </html>
