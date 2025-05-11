@@ -7,15 +7,15 @@
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="S4ntinal">
-    <meta property="og:description" content="S4ntinal Website is my own bio link i made it my self so stfu i ain't doing it for nobody.">
-    <meta property="og:image" content="http://s4ntinal.xyz/assets/images/Preview.gif">
+    <meta property="og:description" content="Welcome to the S4ntinal website. Check out our cool content!">
+    <meta property="og:image" content="http://s4ntinal.xyz/assets/images/preview.jpg">
     <meta property="og:url" content="http://s4ntinal.xyz">
     <meta property="og:type" content="website">
     
     <!-- Optional Twitter Meta Tags for better sharing on Twitter -->
     <meta name="twitter:title" content="S4ntinal">
-    <meta name="twitter:description" content="S4ntinal Website is my own bio link i made it my self so stfu i ain't doing it for nobody.">
-    <meta name="twitter:image" content="http://s4ntinal.xyz/assets/images/Preview.gif">
+    <meta name="twitter:description" content="Welcome to the S4ntinal website. Check out our cool content!">
+    <meta name="twitter:image" content="http://s4ntinal.xyz/assets/images/preview.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
     <style>
@@ -51,16 +51,16 @@
             transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
         }
 
-        /* Centering Emoji */
-        .emoji {
-            font-size: 6rem; /* Increased size */
+        /* Image Styling */
+        .logo {
+            width: 150px; /* Adjust size as needed */
+            transition: transform 0.5s ease-in-out, filter 1s ease, opacity 1s ease; /* Transition for filter and transform */
+            filter: grayscale(100%) contrast(100%); /* Initial grayscale and contrast */
             z-index: 1;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #fff;
-            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
         }
 
         /* Links Container - Flexbox to center content */
@@ -111,12 +111,13 @@
         .link:hover {
             background-color: #333;
         }
+
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.querySelector(".container");
             const bgVideo = document.querySelector(".bg-video");
-            const emoji = document.querySelector(".emoji");
+            const logo = document.querySelector(".logo");
             const audio = document.getElementById("audio");
             
             // Initially, set the audio to pause
@@ -124,18 +125,21 @@
 
             // Click anywhere on the body to reveal the bio links and start video playback
             document.body.addEventListener("click", function() {
-                if (emoji.style.display !== "none") {
+                if (logo.style.display !== "none") {
                     // Show the background video and remove blur
                     bgVideo.style.visibility = "visible"; // Make video visible
                     bgVideo.style.opacity = "1"; // Fade in the video
                     bgVideo.style.filter = "blur(0)";  // Remove the blur from the background
                     bgVideo.style.transform = "scale(1.1)";  // Add motion blur effect on video
                     
-                    // Show the bio links and animate the emoji upwards
+                    // Show the bio links and animate the logo upwards
                     container.classList.add("show");
-                    emoji.style.transform = "translate(-50%, -100%)";
-                    emoji.style.filter = "blur(5px)";
-                    emoji.style.display = "none";  // Hide the emoji after the first click
+                    logo.style.transform = "translate(-50%, -100%)";
+                    logo.style.filter = "blur(5px)";
+                    logo.style.display = "none";  // Hide the logo after the first click
+                    logo.style.opacity = "0";  // Hide it during transition
+                    logo.style.filter = "grayscale(0%)"; // Transition to full color
+                    logo.style.transition = "filter 1s ease, opacity 1s ease"; // Smooth transition
                     audio.play();  // Start playing the audio
                 }
             });
@@ -155,9 +159,9 @@
         Your browser does not support the audio element.
     </audio>
     
-    <!-- Emoji (centered) -->
-    <div class="emoji">♱</div>
-    
+    <!-- Logo Image (centered) -->
+    <img src="https://art.pixilart.com/sr2cdd0727a0d59.png" alt="Logo" class="logo"> <!-- Replaced with your provided image URL -->
+
     <!-- Links Container (hidden initially) -->
     <div class="container">
         <h1>S4ntinal</h1> <!-- Changed website name here -->
