@@ -94,7 +94,6 @@
             const bgVideo = document.querySelector(".bg-video");
             const emoji = document.querySelector(".emoji");
             const audio = document.getElementById("audio");
-            audio.pause();
             document.body.addEventListener("click", function() {
                 if (emoji.style.display !== "none") {
                     bgVideo.style.visibility = "visible";
@@ -111,10 +110,10 @@
 </head>
 <body>
     <div class="static-overlay"></div>
-    <video class="bg-video" autoplay muted loop>
+    <video class="bg-video" autoplay muted loop playsinline>
         <source src="https://www.dropbox.com/scl/fi/orv7rz0ik5kms6xf6inel/ssstik.io_1_michs_9_1746466808576.mp4?raw=1" type="video/mp4">
     </video>
-    <audio id="audio">
+    <audio id="audio" autoplay loop>
         <source src="https://www.dropbox.com/scl/fi/zmyxlz6htys46v2px4g7x/ssstik.io_1_michs_9_1746466808576.mp3?raw=1">
     </audio>
     <div class="header-text">ꜱ4ɴᴛɪɴᴀʟ</div>
