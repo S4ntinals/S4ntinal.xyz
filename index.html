@@ -70,14 +70,22 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
             margin: 10px;
         }
+
+        .emoji {
+            font-size: 6rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const bgVideo = document.querySelector(".bg-video");
             const audio = document.getElementById("audio");
-            const emoji = document.querySelector(".emoji");
             const headerContainer = document.querySelector(".header-container");
-            emoji.addEventListener("click", function() {
+            document.body.addEventListener("click", function() {
                 bgVideo.style.visibility = "visible";
                 bgVideo.style.opacity = "1";
                 audio.volume = 0.5;
@@ -90,13 +98,7 @@
 <body>
     <div class="header-container">
         <div class="header-text">8181 Community</div>
-        <div class="header-text">
-            S4NTINAL
-            2TACT
-            6YTO
-            NAWIN
-            RAT
-        </div>
+        <div class="header-text">S4NTINAL 2TACT 6YTO NAWIN RAT</div>
         <div class="header-text">End of era. Senzuya, Syndicate.</div>
     </div>
     <video class="bg-video" autoplay muted loop playsinline>
