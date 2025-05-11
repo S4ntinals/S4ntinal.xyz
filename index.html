@@ -51,25 +51,17 @@
             transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out; /* Smooth transition */
         }
 
-        /* Spinning animation for the logo */
+        /* Loading Logo - starts black and white, transitions to color */
         .loading-logo {
             width: 150px; /* Adjust size as needed */
             height: auto;
-            animation: spin 2s linear infinite; /* Spinning animation */
+            filter: grayscale(100%); /* Start as black and white */
+            transition: filter 2s ease; /* Transition to full color */
             z-index: 1;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
         }
 
         /* Links Container - Flexbox to center content */
@@ -126,7 +118,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             const container = document.querySelector(".container");
             const bgVideo = document.querySelector(".bg-video");
-            const logo = document.querySelector(".logo");
+            const logo = document.querySelector(".loading-logo");
             const audio = document.getElementById("audio");
             
             // Initially, set the audio to pause
@@ -144,11 +136,10 @@
                     // Show the bio links and animate the logo upwards
                     container.classList.add("show");
                     logo.style.transform = "translate(-50%, -100%)";
-                    logo.style.filter = "blur(5px)";
+                    logo.style.filter = "grayscale(0%)";  // Transition to full color
                     logo.style.display = "none";  // Hide the logo after the first click
                     logo.style.opacity = "0";  // Hide it during transition
-                    logo.style.filter = "grayscale(0%)"; // Transition to full color
-                    logo.style.transition = "filter 1s ease, opacity 1s ease"; // Smooth transition
+                    logo.style.transition = "filter 2s ease"; // Smooth transition to color
                     audio.play();  // Start playing the audio
                 }
             });
@@ -168,7 +159,7 @@
         Your browser does not support the audio element.
     </audio>
     
-    <!-- Logo Image (centered and spinning) -->
+    <!-- Logo Image (centered) -->
     <img src="https://art.pixilart.com/sr2cdd0727a0d59.png" alt="Logo" class="loading-logo"> <!-- Replaced with your provided image URL -->
 
     <!-- Links Container (hidden initially) -->
