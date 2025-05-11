@@ -51,37 +51,6 @@
             transition: filter 0.5s ease-in-out, opacity 1s ease-in-out, visibility 1s ease-in-out;
         }
 
-        .static-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/noise-1.png');
-            pointer-events: none;
-            opacity: 0.1;
-            z-index: 1;
-        }
-
-        .emoji {
-            font-size: 6rem;
-            z-index: 1;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            transition: transform 0.5s ease-in-out, filter 0.3s ease-in-out;
-        }
-
-        .header-text {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            margin: 10px;
-        }
-
         .header-container {
             display: flex;
             flex-direction: column;
@@ -91,29 +60,34 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
+            visibility: hidden;
+        }
+
+        .header-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            margin: 10px;
         }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const bgVideo = document.querySelector(".bg-video");
-            const emoji = document.querySelector(".emoji");
             const audio = document.getElementById("audio");
-            document.body.addEventListener("click", function() {
-                if (emoji.style.display !== "none") {
-                    bgVideo.style.visibility = "visible";
-                    bgVideo.style.opacity = "1";
-                    bgVideo.style.filter = "blur(0) grayscale(0.2) contrast(1.2)";
-                    emoji.style.transform = "translate(-50%, -100%)";
-                    emoji.style.filter = "blur(5px)";
-                    emoji.style.display = "none";
-                    audio.play();
-                }
+            const emoji = document.querySelector(".emoji");
+            const headerContainer = document.querySelector(".header-container");
+            emoji.addEventListener("click", function() {
+                bgVideo.style.visibility = "visible";
+                bgVideo.style.opacity = "1";
+                audio.volume = 0.5;
+                audio.play();
+                headerContainer.style.visibility = "visible";
             });
         });
     </script>
 </head>
 <body>
-    <div class="static-overlay"></div>
     <div class="header-container">
         <div class="header-text">8181 Community</div>
         <div class="header-text">
@@ -121,7 +95,8 @@
             2TACT
             6YTO
             NAWIN
-            RAT</div>
+            RAT
+        </div>
         <div class="header-text">End of era. Senzuya, Syndicate.</div>
     </div>
     <video class="bg-video" autoplay muted loop playsinline>
